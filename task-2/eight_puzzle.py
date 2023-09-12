@@ -49,6 +49,13 @@ def h1(s):
     return res
 
 def h3(s):
-    # implement this function
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
-    return 0
+    d = 0
+    for i in range(3):
+        for j in range(3):
+            tile = board[i * 3 + j]
+            if tile != 0:
+                row, col = divmod(goal.index(tile), 3)
+                d += abs(i - row) + abs(j - col)
+    return d
